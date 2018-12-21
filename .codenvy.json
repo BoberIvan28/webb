@@ -1,0 +1,64 @@
+{
+  "environments": {
+    "default": {
+      "machines": {
+        "dev-machine": {
+          "attributes": {
+            "memoryLimitBytes": "2147483648"
+          },
+          "servers": {},
+          "agents": [
+            "org.eclipse.che.ssh",
+            "org.eclipse.che.ws-agent",
+            "org.eclipse.che.terminal",
+            "org.eclipse.che.exec"
+          ]
+        }
+      },
+      "recipe": {
+        "location": "eclipse/ubuntu_jdk8",
+        "type": "dockerimage"
+      }
+    }
+  },
+  "defaultEnv": "default",
+  "projects": [
+    {
+      "links": [],
+      "name": "web",
+      "attributes": {
+        "contribute_to_branch": [
+          "master"
+        ],
+        "commands": [
+          "{\"commandLine\":\"$TOMCAT_HOME/bin/catalina.sh run\", \"name\":\"Run tomcat\", \"attributes\":{\"previewUrl\":\"http://${server.port.8080}\", \"goal\":\"Run\"}, \"type\":\"custom\"}"
+        ]
+      },
+      "type": "blank",
+      "source": {
+        "location": "https://github.com/OsadchyRoman/web",
+        "type": "git",
+        "parameters": {}
+      },
+      "path": "/web",
+      "description": "",
+      "problems": [],
+      "mixins": [
+        "pullrequest"
+      ]
+    }
+  ],
+  "name": "JSP",
+  "commands": [
+    {
+      "commandLine": "mvn -f ${current.project.path} clean package && cp ${current.project.path}/target/*.war $TOMCAT_HOME/webapps/ROOT.war",
+      "name": "Build war",
+      "attributes": {
+        "goal": "Build",
+        "previewUrl": ""
+      },
+      "type": "mvn"
+    }
+  ],
+  "links": []
+}

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app
+        xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+        version="3.0">
+    <display-name>For JSP application</display-name>
+    <!-- <filter>
+        <filter-name>header</filter-name>
+        <filter-class>by.gsu.listner.CORSFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>header</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping> -->
+    <servlet>
+        <servlet-name>ServletCode</servlet-name>
+        <servlet-class>by.gsu.servlets.ServletCode</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletCode</servlet-name>
+        <url-pattern>/sources/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- Servlet for 'Servlet Course' -->
+    <servlet>
+        <servlet-name>servlet-course-greeting</servlet-name>
+        <servlet-class>by.gsu.servlets.GreetServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servlet-course-greeting</servlet-name>
+        <url-pattern>/servletcourse/helloWorld.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servlet-course-person-info</servlet-name>
+        <servlet-class>by.gsu.servlets.PersonInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servlet-course-person-info</servlet-name>
+        <url-pattern>/servletcourse/sendForm.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servlet-course-all-parameters</servlet-name>
+        <servlet-class>by.gsu.servlets.UrlParametersServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servlet-course-all-parameters</servlet-name>
+        <url-pattern>/servletcourse/allParameters.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servlet-course-increment</servlet-name>
+        <servlet-class>by.gsu.servlets.IncrementServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servlet-course-increment</servlet-name>
+        <url-pattern>/servletcourse/increment.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servlet-course-choose-color</servlet-name>
+        <servlet-class>by.gsu.servlets.ChooseColorServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servlet-course-choose-color</servlet-name>
+        <url-pattern>/servletcourse/chooseColor.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servlet-course-string-work</servlet-name>
+        <servlet-class>by.gsu.servlets.StringWorkerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servlet-course-string-work</servlet-name>
+        <url-pattern>/servletcourse/stringWork.jsp</url-pattern>
+    </servlet-mapping>
+</web-app>
